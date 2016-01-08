@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]>
+<html class="ie ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]>
+<html class="ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]>
+<html class="ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en"><!--<![endif]-->
+<head>
+	<link rel='shortcut icon' href='vitruvian.ico' type='image/x-icon'>
+	<!-- Basic Page Needs
+	================================================== -->
+	<meta charset="utf-8">
+	<title>da Vinci Code Patterns</title>
+	<!-- Mobile Specific
+	================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+	================================================== -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<!-- Web Fonts
+	================================================== -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,latin-ext' rel='stylesheet'
+				type='text/css'>
+	<!-- daVinci Font
+		================================================== -->
+	<link href='css/mixins.css' rel='stylesheet' type='text/css'>
+
+	<!-- JS
+	================================================== -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="js/jquery.isotope.min.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="js/selectnav.js"></script>
+	<script src="js/ender.js"></script>
+	<script src="js/carousel.js"></script>
+	<script src="js/jquery.flexslider.js"></script>
+	<script src="js/shortcodes.js"></script>
+	<script src="js/imagebox.min.js"></script>
+	<script src="js/twitter.js"></script>
+	<script src="js/tooltip.js"></script>
+	<script src="js/effects.js"></script>
+
+</head>
+<body>
+
+<!-- Primary Page Layout
+================================================== -->
+
+<!-- Header -->
+<header id="header">
+	<!-- 960 Container -->
+	<div class="container">
+		<section id="logo-hamburgerMenu">
+			<!-- Logo -->
+			<div class="four columns">
+				<div id="logo"><a href="#"><img src="images/logo.png" alt=""/></a></div>
+			</div>
+			<!-- Native Menu Removed-->
+			<!-- Installed the Following Hamburger Menu -->
+			<div class="twelve columns">
+				<div class="mobile-nav">
+					<div class="menu-btn" id="menu-btn">
+						<div></div>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</div>
+			</div>
+		</section>
+		<nav id="responsive-menu">
+			<div class="twelve columns">
+				<div class="responsive-menu">
+					<div class="one-third column">
+						<h3 class="menu-headline">Standard Organizers</h3>
+						<ul>
+							<li><input type="checkbox" id="cb1"/><label for="cb1">Creational</label>
+								<ul>
+									<li><label><a href="testimonials.html">Abstract Factory</a></label></li>
+									<li><label>Builder</label></li>
+									<li><label>Factory Method</label></li>
+									<li><label>Prototype</label></li>
+									<li><label>Singleton</label></li>
+								</ul>
+							</li>
+						</ul>
+						<ul>
+							<li><input type="checkbox" id="cb2"/><label for="cb2">Structural</label>
+								<ul>
+									<li><label>Adapter</label></li>
+									<li><label>Bridge</label></li>
+									<li><label>Composite</label></li>
+									<li><label>Decorator</label></li>
+									<li><label>Facade</label></li>
+									<li><label>Flyweight</label></li>
+									<li><label>Proxy</label></li>
+								</ul>
+							</li>
+						</ul>
+						<ul>
+							<li><input type="checkbox" id="cb3"/><label for="cb3">Behavioral</label>
+								<ul>
+									<li><label>Chain of Responsibility</label></li>
+									<li><label>Command</label></li>
+									<li><label>Interpreter</label></li>
+									<li><label>Iterator</label></li>
+									<li><label>Mediator</label></li>
+									<li><label>Momento</label></li>
+									<li><label>Observer</label></li>
+									<li><label>State</label></li>
+									<li><label>Strategy</label></li>
+									<li><label>Template Method</label></li>
+									<li><label>Visitor</label></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div class="one-third column">
+						<h3 class="menu-headline">Shi Chuan 喜感网 Organizers</h3>
+						<ul>
+							<li><input type="checkbox" id="cb4"/><label for="cb4">General Patterns</label>
+								<ul>
+									<li><label><a href="testimonials.html">Function Declarations</a></label></li>
+									<li><label><a href="testimonials.html">Conditionals</a></label></li>
+									<li><label><a href="testimonials.html">Access to the Global Object</a></label></li>
+									<li><label><a href="testimonials.html">Single var Pattern</a></label></li>
+									<li><label><a href="testimonials.html">Hoisting</a></label></li>
+									<li><label><a href="testimonials.html">for loops</a></label></li>
+									<li><label><a href="testimonials.html">for-in loops</a></label></li>
+									<li><label><a href="testimonials.html">(Not) Augmenting Built-in Prototypes</a></label></li>
+									<li><label><a href="testimonials.html">switch Pattern</a></label></li>
+									<li><label><a href="testimonials.html">Implied Typecasting</a></label></li>
+									<li><label><a href="testimonials.html">Avoiding eval()</a></label></li>
+									<li><label><a href="testimonials.html">Number Conversions with parseInt()</a></label></li>
+									<li><label><a href="testimonials.html">Minimizing Globals</a></label></li>
+									<li><label><a href="testimonials.html">Problematic Globals</a></label></li>
+								</ul>
+							</li>
+							<li><input type="checkbox" id="cb5"/><label for="cb5">jQuery</label>
+								<ul>
+									<li><input type="checkbox" id="cb5a"/><label for="cb5a">Selector</label>
+										<ul>
+											<li><label><a href="testimonials.html">Left and Right </a></label></li>
+											<li><label><a href="testimonials.html">Decending from id </a></label></li>
+											<li><label><a href="testimonials.html">Universal Selector </a></label></li>
+											<li><label><a href="testimonials.html">Be Specific when Needed </a></label></li>
+
+										</ul>
+									</li>
+									<li><input type="checkbox" id="cb5b"/><label for="cb5b">Publish-Subscribe</label>
+										<ul>
+											<li><label><a href="testimonials.html">Method 1 </a></label></li>
+											<li><label><a href="testimonials.html">Method 2 </a></label></li>
+											<li><label><a href="testimonials.html">Method 3 </a></label></li>
+											<li><label><a href="testimonials.html">Method 4 </a></label></li>
+
+										</ul>
+									</li>
+									<li><input type="checkbox" id="cb5c"/><label for="cb5c">jQuery Plugins</label>
+										<ul>
+											<li><label><a href="testimonials.html">	Basic	</a></label></li>
+											<li><label><a href="testimonials.html">	Extend	</a></label></li>
+											<li><label><a href="testimonials.html">	Lightweight	</a></label></li>
+											<li><label><a href="testimonials.html">	Namespaced pattern	</a></label></li>
+											<li><label><a href="testimonials.html">	Prototypal inheritance	</a></label></li>
+											<li><label><a href="testimonials.html">	Best options	</a></label></li>
+											<li><label><a href="testimonials.html">	Custom events (Pseudo Pub/Sub)	</a></label></li>
+											<li><label><a href="testimonials.html">	'Highly configurable' mutable	</a></label></li>
+											<li><label><a href="testimonials.html">	UI Widget factory	</a></label></li>
+											<li><label><a href="testimonials.html">	UI Widget factory "bridge"	</a></label></li>
+											<li><label><a href="testimonials.html">	UI Widget factory for jQuery mobile	</a></label></li>
+											<li><label><a href="testimonials.html">	UI Widget + RequireJS module	</a></label></li>
+											<li><label><a href="testimonials.html">	Universal Module Definition pattern	</a></label></li>
+
+										</ul>
+									</li>
+									<li><label><a href="testimonials.html">requery </a></label></li>
+									<li><label><a href="testimonials.html">append </a></label></li>
+									<li><label><a href="testimonials.html">data </a></label></li>
+									<li><label><a href="testimonials.html">context and find </a></label></li>
+									<li><label><a href="testimonials.html">detach </a></label></li>
+									<li><label><a href="testimonials.html">event delegation </a></label></li>
+									<li><label><a href="testimonials.html">selector cache </a></label></li>
+									<li><label><a href="testimonials.html">window scroll event </a></label></li>
+								</ul>
+							</li>
+							<li><input type="checkbox" id="cb6"/><label for="cb6">Literals and Constructors</label>
+								<ul>
+									<li><label><a href="testimonials.html">	Object literal	</a></label></li>
+									<li><label><a href="testimonials.html">	Enforcing new	</a></label></li>
+									<li><label><a href="testimonials.html">	Array literal	</a></label></li>
+									<li><label><a href="testimonials.html">	Working with JSON	</a></label></li>
+									<li><label><a href="testimonials.html">	Primitive wrappers	</a></label></li>
+									<li><label><a href="testimonials.html">	Regular expression literal	</a></label></li>
+								</ul>
+							</li>
+							<li><input type="checkbox" id="cb7"/><label for="cb7">Function</label>
+								<ul>
+									<li><input type="checkbox" id="cb7a"/><label for="cb7a">API Patterns</label>
+										<ul>
+											<li><label><a href="testimonials.html">	Callback patterns	</a></label></li>
+											<li><label><a href="testimonials.html">	Configuration objects	</a></label></li>
+											<li><label><a href="testimonials.html">	Returning functions	</a></label></li>
+											<li><label><a href="testimonials.html">	Currying	</a></label></li>
+											<li><label><a href="testimonials.html">	Partial application	</a></label></li>
+
+										</ul>
+									</li>
+									<li><input type="checkbox" id="cb7b"/><label for="cb7b">Initialization Patterns</label>
+										<ul>
+											<li><label><a href="testimonials.html">	Immediate functions	</a></label></li>
+											<li><label><a href="testimonials.html">	Immediate object initialization	</a></label></li>
+											<li><label><a href="testimonials.html">	Init-time branching	</a></label></li>
+
+										</ul>
+									</li>
+									<li><input type="checkbox" id="cb7c"/><label for="cb7c">Performance</label>
+										<ul>
+											<li><label><a href="testimonials.html">	Memorization	</a></label></li>
+											<li><label><a href="testimonials.html">	Self-defining functions	</a></label></li>
+
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><input type="checkbox" id="cb8"/><label for="cb8">Object Creation</label>
+								<ul>
+									<li><label><a href="testimonials.html">	Namespace	</a></label></li>
+									<li><label><a href="testimonials.html">	Declaring Dependencies	</a></label></li>
+									<li><label><a href="testimonials.html">	Private Properties and Methods	</a></label></li>
+									<li><label><a href="testimonials.html">	Revelation Pattern	</a></label></li>
+									<li><label><a href="testimonials.html">	Module Pattern	</a></label></li>
+									<li><label><a href="testimonials.html">	Sandbox	</a></label></li>
+									<li><label><a href="testimonials.html">	Static Members	</a></label></li>
+									<li><label><a href="testimonials.html">	Object Constants	</a></label></li>
+									<li><label><a href="testimonials.html">	Chaining Pattern	</a></label></li>
+									<li><label><a href="testimonials.html">	method() Method	</a></label></li>
+								</ul>
+							</li>
+							<li><input type="checkbox" id="cb9"/><label for="cb9">Code Reuse</label>
+								<ul>
+									<li><input type="checkbox" id="cb9a"/><label for="cb9a">Classical: Deprecated</label>
+										<ul>
+											<li><label><a href="testimonials.html">	The default pattern	</a></label></li>
+											<li><label><a href="testimonials.html">	Rent a constructor	</a></label></li>
+											<li><label><a href="testimonials.html">	Rent and Set Prototype	</a></label></li>
+											<li><label><a href="testimonials.html">	Share the Prototype	</a></label></li>
+											<li><label><a href="testimonials.html">	A Temporary Constructor	</a></label></li>
+											<li><label><a href="testimonials.html">	Class	</a></label></li>
+
+										</ul>
+									</li>
+									<li><input type="checkbox" id="cb9b"/><label for="cb9b">Preferred</label>
+										<ul>
+											<li><label><a href="testimonials.html">	Prototypal Inheritance	</a></label></li>
+											<li><label><a href="testimonials.html">	Inheritance by Copying Properties	</a></label></li>
+											<li><label><a href="testimonials.html">	Mix-ins	</a></label></li>
+											<li><label><a href="testimonials.html">	Borrowing Methods	</a></label></li>
+										</ul>
+									</li>
+
+								</ul>
+							</li>
+							<li><input type="checkbox" id="cb10"/><label for="cb10">Design</label>
+								<ul>
+									<li><input type="checkbox" id="cb10a"/><label for="cb10a">Creational</label>
+										<ul>
+											<li><label><a href="testimonials.html">	Builder	</a></label></li>
+											<li><label><a href="testimonials.html">	Factory method	</a></label></li>
+											<li><label><a href="testimonials.html">	Singleton	</a></label></li>
+
+										</ul>
+									</li>
+									<li><input type="checkbox" id="cb10b"/><label for="cb10b">Structural</label>
+										<ul>
+											<li><label><a href="testimonials.html">	Decorator	</a></label></li>
+											<li><label><a href="testimonials.html">	Facade	</a></label></li>
+											<li><label><a href="testimonials.html">	Proxy	</a></label></li>
+										</ul>
+									</li>
+									<li><input type="checkbox" id="cb10c"/><label for="cb10c">Behavioral</label>
+										<ul>
+											<li><label><a href="testimonials.html">	Chain of responsibility	</a></label></li>
+											<li><label><a href="testimonials.html">	Command	</a></label></li>
+											<li><label><a href="testimonials.html">	Iterator	</a></label></li>
+											<li><label><a href="testimonials.html">	Mediator	</a></label></li>
+											<li><label><a href="testimonials.html">	Observer	</a></label></li>
+											<li><label><a href="testimonials.html">	Strategy	</a></label></li>
+
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div class="twelve columns"></div>
+					<div class="one-third column"><h3 class="menu-headline">Alphabetical List</h3>
+						<ul>
+							<li><label><a href="testimonials.html">Itemized List</a></label></li>
+						</ul>
+					</div>
+					<div class="one-third column">
+						<h3 class="menu-headline">Blog</h3>
+						<ul>
+							<li><label><a href="testimonials.html">A</a></label></li>
+							<li><label><a href="testimonials.html">B</a></label></li>
+							<li><label><a href="testimonials.html">Archived</a></label></li>
+						</ul>
+					</div>
+					<div class="one-third column">
+						<h3 class="menu-headline">End Matter</h3>
+						<ul>
+							<li><label><a href="testimonials.html">Bibliography</a></label></li>
+							<li><label><a href="testimonials.html">Index</a></label></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</div>
+</header>
+<!-- End Header -->
