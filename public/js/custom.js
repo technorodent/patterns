@@ -29,7 +29,7 @@ jQuery(document).ready(function() {
 	
 	/* Responsive Menu */
 	domready(function(){
-			
+		return;
 		selectnav('nav', {
 			label: 'Menu',
 			nested: true,

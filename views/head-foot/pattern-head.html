@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]>
+<html class="ie ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]>
+<html class="ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]>
+<html class="ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en"><!--<![endif]-->
+<head>
+	<link rel='shortcut icon' href='vitruvian.ico' type='image/x-icon'>
+	<!-- Basic Page Needs
+	================================================== -->
+	<meta charset="utf-8">
+	<title>da Vinci Code Patterns</title>
+	<!-- Mobile Specific
+	================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+	================================================== -->
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+	<!-- Web Fonts
+	================================================== -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,latin-ext' rel='stylesheet'
+				type='text/css'>
+	<!-- daVinci Font
+		================================================== -->
+	<link href='../css/mixins.css' rel='stylesheet' type='text/css'>
+
+	<!-- JS
+	================================================== -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="../js/jquery.isotope.min.js"></script>
+	<script src="../js/custom.js"></script>
+	<script src="../js/selectnav.js"></script>
+	<script src="../js/ender.js"></script>
+	<script src="../js/carousel.js"></script>
+	<script src="../js/jquery.flexslider.js"></script>
+	<script src="../js/shortcodes.js"></script>
+	<script src="../js/imagebox.min.js"></script>
+	<script src="../js/twitter.js"></script>
+	<script src="../js/tooltip.js"></script>
+	<script src="../js/effects.js"></script>
+
+</head>
+<body>
+
+<!-- Primary Page Layout
+================================================== -->
+
+<!-- Header -->
+<header id="header">
+	<!-- 960 Container -->
+	<div class="container">
+		<section id="logo-hamburgerMenu">
+			<!-- Logo -->
+			<div class="four columns">
+				<div id="logo"><a href="#"><img src="images/logo.png" alt=""/></a></div>
+			</div>
+			<!-- Native Menu Removed-->
+			<!-- Installed the Following Hamburger Menu -->
+			<div class="twelve columns">
+				<div class="mobile-nav">
+					<div class="menu-btn" id="menu-btn">
+						<div></div>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</div>
+			</div>
+		</section>
+		<nav id="responsive-menu">
+			<div class="twelve columns">
+				<div class="responsive-menu">
+					<div class="one-third column">
+						<h3 class="menu-headline">Standard Organizers</h3>
+						<ul>
+							<li><input type="checkbox" id="cb1"/><label for="cb1">Creational</label>
+								<ul>
+									<li><label>Abstract Factory</label></li>
+									<li><label>Builder</label></li>
+									<li><label>Factory Method</label></li>
+									<li><label>Prototype</label></li>
+									<li><label>Singleton</label></li>
+								</ul>
+							</li>
+						</ul>
+						<ul>
+							<li><input type="checkbox" id="cb2"/><label for="cb2">Structural</label>
+								<ul>
+									<li><label>Adapter</label></li>
+									<li><label>Bridge</label></li>
+									<li><label>Composite</label></li>
+									<li><label>Decorator</label></li>
+									<li><label>Facade</label></li>
+									<li><label>Flyweight</label></li>
+									<li><label>Proxy</label></li>
+								</ul>
+							</li>
+						</ul>
+						<ul>
+							<li><input type="checkbox" id="cb3"/><label for="cb3">Behavioral</label>
+								<ul>
+									<li><label>Chain of Responsibility</label></li>
+									<li><label>Command</label></li>
+									<li><label>Interpreter</label></li>
+									<li><label>Iterator</label></li>
+									<li><label>Mediator</label></li>
+									<li><label>Momento</label></li>
+									<li><label>Observer</label></li>
+									<li><label>State</label></li>
+									<li><label>Strategy</label></li>
+									<li><label>Template Method</label></li>
+									<li><label>Visitor</label></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div class="one-third column">
+						<h3 class="menu-headline">Shi Chuan 喜感网 Organizers</h3>
+						<ul>
+							<li><input type="checkbox" id="cb4"/><label for="cb4">General Patterns</label>
+								<ul>
+									<li><label><a href="/general-patterns/function-declarations">Function Declarations</a></label></li>
+									<li><label><a href="/general-patterns/conditionals">Conditionals</a></label></li>
+									<li><label><a href="/general-patterns/global-object-access">Access to the Global Object</a></label></li>
+									<li><label><a href="/general-patterns/single-var">Single var Pattern</a></label></li>
+									<li><label><a href="/general-patterns/hoisting">Hoisting</a></label></li>
+									<li><label><a href="/general-patterns/for-loop">for loops</a></label></li>
+									<li><label><a href="/general-patterns/for-in-loop">for-in loops</a></label></li>
+									<li><label><a href="/general-patterns/augment-built-in-prototypes">(Not) Augmenting Built-in Prototypes</a></label></li>
+									<li><label><a href="general-patterns/switch">switch Pattern</a></label></li>
+									<li><label><a href="/general-patterns/implied-typecasting">Implied Typecasting</a></label></li>
+									<li><label><a href="/general-patterns/eval">Avoiding eval()</a></label></li>
+									<li><label><a href="/general-patterns/number-conversion">Number Conversions with parseInt()</a></label></li>
+									<li><label><a href="/general-patterns/globals">Minimizing Globals</a></label></li>
+									<li><label><a href="/general-patterns/globals">Problematic Globals</a></label></li>
+								</ul>
+							</li>
+							<li><input type="checkbox" id="cb5"/><label for="cb5">jQuery</label>
+								<ul>
+									<li><input type="checkbox" id="cb5a"/><label for="cb5a">Selector</label>
+										<ul>
+											<li><label><a href="/jquery/selector/left-and-right">Left and Right </a></label></li>
+											<li><label><a href="/jquery/selector/decending-from-id">Decending from id </a></label></li>
+											<li><label><a href="/jquery/selector/universal-selector">Universal Selector </a></label></li>
+											<li><label><a href="/jquery/selector/be-specific">Be Specific when Needed </a></label></li>
+
+										</ul>
+									</li>
+									<li><input type="checkbox" id="cb5b"/><label for="cb5b">Publish-Subscribe</label>
+										<ul>
+											<li><label><a href="/jquery/publish-subscribe/custom-events">jQ Custom Events </a></label></li>
+											<li><label><a href="/jquery/publish-subscribe/using-callbacks">jQ Callbacks </a></label></li>
+											<li><label><a href="/jquery/publish-subscribe/using-observable">jQ Observable </a></label></li>
+											<li><label><a href="/jquery/publish-subscribe/using-plugins">jQ Plugins </a></label></li>
+
+										</ul>
+									</li>
+									<li><input type="checkbox" id="cb5c"/><label for="cb5c">jQuery Plugins</label>
+										<ul>
+											<li><label><a href="/jquery/plugin/basic">	Basic	</a></label></li>
+											<li><label><a href="/jquery/plugin/extend">	Extend	</a></label></li>
+											<li><label><a href="/jquery/plugin/lightweight">	Lightweight	</a></label></li>
+											<li><label><a href="/jquery/plugin/namespaced">	Namespaced pattern	</a></label></li>
+											<li><label><a href="/jquery/plugin/prototypal">	Prototypal inheritance	</a></label></li>
+											<li><label><a href="/jquery/plugin/best-options">	Best options	</a></label></li>
+											<li><label><a href="/jquery/plugin/custom-events">	Custom events (Pseudo Pub/Sub)	</a></label></li>
+											<li><label><a href="/jquery/plugin/highly-configurable">	'Highly configurable' mutable	</a></label></li>
+											<li><label><a href="/jquery/plugin/ui-widget-requireJS module">	UI Widget factory	</a></label></li>
+											<li><label><a href="/jquery/plugin/ui-widget-factory-bridge">	UI Widget factory "bridge"	</a></label></li>
+											<li><label><a href="/jquery/plugin/ui-widget-factory-mobile">	UI Widget factory for jQuery mobile	</a></label></li>
+											<li><label><a href="/jquery/plugin/ui-widget-factory">	UI Widget + RequireJS module	</a></label></li>
+											<li><label><a href="/jquery/plugin/universal-module">	Universal Module Definition pattern	</a></label></li>
+
+										</ul>
+									</li>
+									<li><label><a href="/jquery/general/requery">Requery </a></label></li>
+									<li><label><a href="/jquery/general/append">Append </a></label></li>
+									<li><label><a href="/jquery/general/data">Data </a></label></li>
+									<li><label><a href="/jquery/general/context">Context and Find </a></label></li>
+									<li><label><a href="/jquery/general/detach">Detach</a></label></li>
+									<li><label><a href="/jquery/general/event-delegation">Event Delegation </a></label></li>
+									<li><label><a href="/jquery/general/selector-cache">Selector Cache </a></label></li>
+									<li><label><a href="/jquery/general/window-scroll-event">Window Scroll Event </a></label></li>
+								</ul>
+							</li>
+							<li><input type="checkbox" id="cb6"/><label for="cb6">Literals and Constructors</label>
+								<ul>
+									<li><label><a href="/literals-constructors/object-literal">	Object literal	</a></label></li>
+									<li><label><a href="/literals-constructors/enforcing-new">	Enforcing new	</a></label></li>
+									<li><label><a href="/literals-constructors/array-literal">	Array literal	</a></label></li>
+									<li><label><a href="/literals-constructors/json">	Working with JSON	</a></label></li>
+									<li><label><a href="/literals-constructors/primitive-wrapper">	Primitive wrappers	</a></label></li>
+									<li><label><a href="/literals-constructors/regular-expression">	Regular expression literal	</a></label></li>
+								</ul>
+							</li>
+							<li><input type="checkbox" id="cb7"/><label for="cb7">Function</label>
+								<ul>
+									<li><input type="checkbox" id="cb7a"/><label for="cb7a">API Patterns</label>
+										<ul>
+											<li><label><a href="/functions/api/callback">	Callback Patterns	</a></label></li>
+											<li><label><a href="/functions/api/configuration">	Configuration Objects	</a></label></li>
+											<li><label><a href="/functions/api/returning">	Returning Functions	</a></label></li>
+											<li><label><a href="/functions/api/currying">	Currying	</a></label></li>
+											<li><label><a href="/functions/api/partial">	Partial Application	</a></label></li>
+
+										</ul>
+									</li>
+									<li><input type="checkbox" id="cb7b"/><label for="cb7b">Initialization Patterns</label>
+										<ul>
+											<li><label><a href="/functions/initialization/immediate">	Immediate Functions	</a></label></li>
+											<li><label><a href="/functions/initialization/immediate-object">	Immediate Object Initialization	</a></label></li>
+											<li><label><a href="/functions/initialization/init-time-branch
+">	Init-Time branching	</a></label></li>
+
+										</ul>
+									</li>
+									<li><input type="checkbox" id="cb7c"/><label for="cb7c">Performance</label>
+										<ul>
+											<li><label><a href="/functions/performance/memorization">	Memorization	</a></label></li>
+											<li><label><a href="/functions/performance/self-defining">	Self-defining functions	</a></label></li>
+
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><input type="checkbox" id="cb8"/><label for="cb8">Object Creation</label>
+								<ul>
+									<li><label><a href="/object-creation/namespace">	Namespace	</a></label></li>
+									<li><label><a href="/object-creation/declaring-dependencies">	Declaring Dependencies	</a></label></li>
+									<li><label><a href="/object-creation/private-properties">	Private Properties and Methods	</a></label></li>
+									<li><label><a href="/object-creation/revelation">	Revelation Pattern	</a></label></li>
+									<li><label><a href="/object-creation/module">	Module Pattern	</a></label></li>
+									<li><label><a href="/object-creation/sandbox">	Sandbox	</a></label></li>
+									<li><label><a href="/object-creation/static-members">	Static Members	</a></label></li>
+									<li><label><a href="/object-creation/object-constants">	Object Constants	</a></label></li>
+									<li><label><a href="/object-creation/chaining-pattern">	Chaining Pattern	</a></label></li>
+									<li><label><a href="/object-creation/method-method">	method() Method	</a></label></li>
+								</ul>
+							</li>
+							<li><input type="checkbox" id="cb9"/><label for="cb9">Code Reuse</label>
+								<ul>
+									<li><input type="checkbox" id="cb9a"/><label for="cb9a">Classical: Deprecated</label>
+										<ul>
+											<li><label><a href="/code-reuse/classical/default">	The default pattern	</a></label></li>
+											<li><label><a href="/code-reuse/classical/rent-a-constructor">	Rent a constructor	</a></label></li>
+											<li><label><a href="/code-reuse/classical/rent-and-set-prototype">	Rent and Set Prototype	</a></label></li>
+											<li><label><a href="/code-reuse/classical/share">	Share the Prototype	</a></label></li>
+											<li><label><a href="/code-reuse/classical/temporary-constructor">	A Temporary Constructor	</a></label></li>
+											<li><label><a href="/code-reuse/classical/class">	Class	</a></label></li>
+
+										</ul>
+									</li>
+									<li><input type="checkbox" id="cb9b"/><label for="cb9b">Preferred</label>
+										<ul>
+											<li><label><a href="/code-reuse/preferred/prototypal">	Prototypal Inheritance	</a></label></li>
+											<li><label><a href="/code-reuse/preferred/inheritance">	Inheritance by Copying Properties	</a></label></li>
+											<li><label><a href="/code-reuse/preferred/mix-ins">	Mix-ins	</a></label></li>
+											<li><label><a href="/code-reuse/preferred/borrowing">	Borrowing Methods	</a></label></li>
+										</ul>
+									</li>
+
+								</ul>
+							</li>
+							<li><input type="checkbox" id="cb10"/><label for="cb10">Design</label>
+								<ul>
+									<li><input type="checkbox" id="cb10a"/><label for="cb10a">Creational</label>
+										<ul>
+											<li><label><a href="/design/creational/builder">	Builder	</a></label></li>
+											<li><label><a href="/design/creational/factory">	Factory method	</a></label></li>
+											<li><label><a href="/design/creational/singleton">	Singleton	</a></label></li>
+
+										</ul>
+									</li>
+									<li><input type="checkbox" id="cb10b"/><label for="cb10b">Structural</label>
+										<ul>
+											<li><label><a href="/design/structural/decorator">	Decorator	</a></label></li>
+											<li><label><a href="/design/structural/facade">	Facade	</a></label></li>
+											<li><label><a href="/design/structural/proxy">	Proxy	</a></label></li>
+										</ul>
+									</li>
+									<li><input type="checkbox" id="cb10c"/><label for="cb10c">Behavioral</label>
+										<ul>
+											<li><label><a href="/design/structural/chain">	Chain of responsibility	</a></label></li>
+											<li><label><a href="/design/structural/command">	Command	</a></label></li>
+											<li><label><a href="/design/structural/iterator">	Iterator	</a></label></li>
+											<li><label><a href="/design/structural/mediator">	Mediator	</a></label></li>
+											<li><label><a href="/design/structural/observer">	Observer	</a></label></li>
+											<li><label><a href="/design/structural/strategy">	Strategy	</a></label></li>
+
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div class="twelve columns"></div>
+					<div class="one-third column"><h3 class="menu-headline">Alphabetical List</h3>
+						<ul>
+							<li><label>Itemized List</label></li>
+						</ul>
+					</div>
+					<div class="one-third column">
+						<h3 class="menu-headline">Blog</h3>
+						<ul>
+							<li><label>A</label></li>
+							<li><label>B</label></li>
+							<li><label>Archived</label></li>
+						</ul>
+					</div>
+					<div class="one-third column">
+						<h3 class="menu-headline">End Matter</h3>
+						<ul>
+							<li><label>Bibliography</label></li>
+							<li><label>Index</label></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</div>
+</header>
+<!-- End Header -->

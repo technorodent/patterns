@@ -50,6 +50,7 @@ window.selectnav = (function(){
 			// Crossbrowser issues - http://www.quirksmode.org/js/events_properties.html
 			var targ;
 			if (!e) e = window.event;
+			console.dir(e.target);
 			if (e.target) targ = e.target;
 			else if (e.srcElement) targ = e.srcElement;
 			if (targ.nodeType === 3) // defeat Safari bug
