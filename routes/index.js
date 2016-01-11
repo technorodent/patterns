@@ -4,78 +4,81 @@ var mysql = require('mysql');
 var pool = mysql.createPool({
     connectionLimit: 100,
     host: 'localhost',
-    user: '',
-    password: '',
+    user: '*****',
+    password: '*******',
     database: 'pattern_library',
+    multipleStatements: true,
     debug: false
 });
+var sanitizer = require('sanitizer');
 //var validate = require('./rest-get.js');
 /* GET home page. */
 
 //----------------POSTS---------------------
 router.post('/general-patterns/:pattern', function (req, res, next) {
-    getPostPage('/general-patterns/', req, res);
-    //res.render('patternFragmentPage');
-    //res.end('{"success" : "Updated Successfully", "status" : 200}');
-});
-router.post('/general-patterns/:pattern', function (req, res, next) {
-    getPostPage('/general-patterns/', req, res);
+    console.log("Type: " + req.body.type);
+    console.log("commentTxt: " + req.body.commentTxt);
+    if (req.body.type == "select") {
+        getPostPage('/general-patterns/', req, res);
+    } else if (req.body.type == 'postComment') {
+        postCommentItem('/general-patterns/', req, res);
+
+    };
 });
 router.post('/jquery/general/:pattern', function (req, res) {
-    getPostPage('/jquery/general/', req.params.pattern, 1);
-    console.log("here");
+    getPostPage('/jquery/general/', req, res, 1);
 });
 router.post('/jquery/selector/:pattern', function (req, res) {
-    getPostPage('/jquery/selector/', req.params.pattern, 1);
+    getPostPage('/jquery/selector/', req, res, 1);
 });
 router.post('/jquery/publish-subscribe/:pattern', function (req, res) {
-    getPostPage('/jquery/publish-subscribe/', req.params.pattern, 1);
+    getPostPage('/jquery/publish-subscribe/', req, res, 1);
 });
 router.post('/jquery/plugin/:pattern', function (req, res) {
-    getPostPage('/jquery/plugin/', req.params.pattern, 1);
+    getPostPage('/jquery/plugin/', req, res, 1);
 });
 router.post('/literals-constructors/:pattern', function (req, res) {
-    getPostPage('/literals/constructors/', req.params.pattern, 1);
+    console.log("pattern: " + req.params.pattern);
+    getPostPage('/literals-constructors/', req, res, 1);
 });
 router.post('/functions/:pattern', function (req, res) {
-    getPostPage('/functions/', req.params.pattern, 1);
+    getPostPage('/functions/', req, res, 1);
 });
 router.post('/functions/api/:pattern', function (req, res) {
-    getPostPage('/functions/api/', req.params.pattern, 1);
+    getPostPage('/functions/api/', req, res, 1);
 });
 router.post('/functions/initialization/:pattern', function (req, res) {
-    getPostPage('/functions/initialization/', req.params.pattern, 1);
+    getPostPage('/functions/initialization/', req, res, 1);
 });
 router.post('/functions/performance/:pattern', function (req, res) {
-    getPostPage('/functions/performance/', req.params.pattern, 1);
+    getPostPage('/functions/performance/', req, res, 1);
 });
 router.post('/object-creation/:pattern', function (req, res) {
-    getPostPage('/object-creation/', req.params.pattern, 1);
+    getPostPage('/object-creation/', req, res, 1);
 });
 router.post('/code-reuse/:pattern', function (req, res) {
-    getPostPage('/code-reuse/', req.params.pattern, 1);
+    getPostPage('/code-reuse/', req, res, 1);
 });
 router.post('/code-reuse/classical/:pattern', function (req, res) {
-    getPostPage('/code-reuse/classical/', req.params.pattern, 1);
+    getPostPage('/code-reuse/classical/', req, res, 1);
 });
 router.post('/code-reuse/preferred/:pattern', function (req, res) {
-    getPostPage('/code-reuse/preferred/', req.params.pattern, 1);
+    getPostPage('/code-reuse/preferred/', req, res, 1);
 });
 router.post('/design/:pattern', function (req, res) {
-    getPostPage('/design/', req.params.pattern, 1);
+    getPostPage('/design/', req, res, 1);
 });
 router.post('/design/creational/:pattern', function (req, res) {
-    getPostPage('/design/creational/', req.params.pattern, 1);
+    getPostPage('/design/creational/', req, res, 1);
 });
 router.post('/design/structural/:pattern', function (req, res) {
-    getPostPage('/design/structural/', req.params.pattern, 1);
+    getPostPage('/design/structural/', req, res, 1);
 });
 router.post('/design/behavioral/:pattern', function (req, res) {
-    getPostPage('/design/behavioral/', req.params.pattern, 1);
+    getPostPage('/design/behavioral/', req, res, 1);
 });
 //----------------GETS---------------------
 router.get('/', function (req, res, next) {
-    // res.send('Hello World!');
     res.render('index', {title: 'Express'});
 });
 router.get('/about', function (req, res) {
@@ -156,54 +159,17 @@ router.get('/design/behavioral/:pattern', function (req, res) {
     getPage('/design/behavioral/', req.params.pattern);
     res.send("ok");
 });
-/*
-testDB = function (organizer, oAddress) {
-    pool.getConnection(function (err, connection) {
-        if (err) {
-            connection.release();
-            console.log(err);
-        }
-        //console.log('connected as id ' + connection.threadId);
-        var oPromise = new Promise(function (resolve, reject) {
-            console.log("Select pk as keyVal from patterns where route_a like '" + organizer + "' and route_b like'" + oAddress + "'");
-            connection.query("Select pk as keyVal from patterns where route_a like '" + organizer + "' and route_b like '" + oAddress + "'", function (err, rows, fields) {
-                if (!err) {
-                    if (typeof rows[0] == 'undefined') {
-                        console.log("Undefined: " + organizer + " " + oAddress);
-                        connection.release();
-                        reject("It failed");
-                    } else {
-                        connection.release();
-                        console.log("....itemKey: " + rows[0].keyVal);
-                        resolve(rows[0].keyVal);
-                    }
-                }
-                else {
-                    console.log("failure");
-                    connection.release();
-                    reject("It failed");
-                }
-            });
-        });
-        connection.on('error', function (err) {
-            console.log("connection.on error: " + err.message);
-        });
-    });
-}
-var restMe = new Array("function-declarations", "conditionals", "global-object-access", "single-var", "hoisting", "for-loop", "for-in-loop", "augment-built-in-prototypes", "switch", "implied-typecasting", "eval", "number-conversion", "globals", "globals");
-for (var i = 0; i < restMe.length; i++) {
-    console.log(restMe[i]);
-    testDB("/general-patterns/", restMe[i]);
-}
-*/
-var getPostPage = function (organizer, req, res, level) {
+var postCommentItem = function (organizer, req, res){
     var itemKey;
+    //NB: not the spirit of the Rich Text Editor, but, for this purpose:
+    var squeakyClean = sanitizer.sanitize(req.body.commentTxt);
+    console.log(squeakyClean);
     pool.getConnection(function (err, connection) {
         if (err) {
             connection.release();
             console.log(err);
         }
-        //console.log('connected as id ' + connection.threadId);
+        console.log("Select pk as keyVal from patterns where route_a like '" + organizer + "' and route_b like '" + req.params.pattern + "'");
         var oPromise = new Promise(function (resolve, reject) {
             connection.query("Select pk as keyVal from patterns where route_a like '" + organizer + "' and route_b like'" + req.params.pattern + "'", function (err, rows, fields) {
                 //if (err) throw err;
@@ -218,9 +184,87 @@ var getPostPage = function (organizer, req, res, level) {
             });
         });
         oPromise.then(function (result) {
-            connection.query("Select * from patterns where pk=" + result, function (err, rows, fields) {
+            var commentTxt = squeakyClean;
+            var nameTxt = req.body.nameTxt;
+            var sqlStmt = "SET @test = " + result + "; SET @commentTxt = '" + commentTxt + "'; SET @nameTxt = '" + nameTxt + "'; INSERT INTO pattern_library.comments (fk, commentator, comment) VALUES (@test, @nameTxt, @commentTxt); CALL htmlCommentsOnly( @test); Select * from patterns where pk=@test; SELECT @test as inout_i";
+            console.log(sqlStmt);
+            connection.query(sqlStmt, function (err, rows, fields)  {
                 if (err) throw err;
-                res.render('patternFragmentPage', {title: rows[0].pattern}, function (err, html) {
+                var tmpHtml = '',
+                    patternName;
+                //console.log(rows);
+                for (var i = 0; i < rows.length; i++) {
+                    for (idx in rows[i]) {
+                        if (!isNaN(idx)) {
+                            var tmpObj = eval(rows[i][idx]);
+                            if (typeof tmpObj.html == 'undefined') {
+                                if (typeof(tmpObj.pattern) != 'undefined') {
+                                    patternName = tmpObj.pattern;
+                                }
+                            } else {
+                                tmpHtml += tmpObj.html;
+                            }
+                        }
+                    }
+                }
+                res.send(tmpHtml);
+                connection.release();
+
+            });
+        }, function (err) {
+            connection.release();
+        });
+    });
+}
+var getPostPage = function (organizer, req, res, level) {
+    var itemKey;
+    pool.getConnection(function (err, connection) {
+        if (err) {
+            connection.release();
+            console.log(err);
+        }
+        console.log("Select pk as keyVal from patterns where route_a like '" + organizer + "' and route_b like'" + req.params.pattern + "'");
+        var oPromise = new Promise(function (resolve, reject) {
+            connection.query("Select pk as keyVal from patterns where route_a like '" + organizer + "' and route_b like'" + req.params.pattern + "'", function (err, rows, fields) {
+                //if (err) throw err;
+                if (!err) {
+                    console.log("....itemKey: " + rows[0].keyVal);
+                    resolve(rows[0].keyVal);
+                }
+                else {
+                    connection.release();
+                    reject("It failed");
+                }
+            });
+        });
+        oPromise.then(function (result) {
+            //Select * from patterns where pk=" + result
+            connection.query('SET @test = ' + result + '; CALL htmlCommentsOnly( @test); Select * from patterns where pk=@test; SELECT @test as inout_i', function (err, rows, fields) {
+                if (err) throw err;
+                var paraText = "<p>Recognition hybrid hyperlinked passive specification nominal line scan algorithm development. Protocol multiplexed normalizing backbone or cable serial. Patch ethernet boolean solid prototype bridgeware coordinated array vector gigabyte. interface audio optical video resistor optical nano phase. Femtosecond read-only technician logarithmic disk resistor internet fragmentation analog nano extension. Pulse PC connectivity interval.</p><p>Gigabyte recursive vector equipment. Effect inertia sequential PC proxy limiter modular. Gigabyte in amplified extended digital bridgeware optical nano fiber. Frequency normalizing capacitance hyperlinked analog passive application theory line nominal rate includes.</p><p>For right now, must end with a br break...</p><br>"
+                var tmpHtml = '',
+                    patternName;
+                //console.log(rows);
+                for (var i = 0; i < rows.length; i++) {
+                    for (idx in rows[i]) {
+                        if (!isNaN(idx)) {
+                            var tmpObj = eval(rows[i][idx]);
+                            if (typeof tmpObj.html == 'undefined') {
+                                if (typeof(tmpObj.pattern) != 'undefined') {
+                                    patternName = tmpObj.pattern;
+                                }
+                            } else {
+                                tmpHtml += tmpObj.html;
+                            }
+                        }
+                    }
+                }
+                //console.log(tmpHtml);
+                res.render('patternFragmentPage', {
+                    title: patternName,
+                    postContent: paraText,
+                    commentContent: tmpHtml
+                }, function (err, html) {
                     if (err)throw err;
                     res.send(html);
                     connection.release();

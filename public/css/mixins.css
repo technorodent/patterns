@@ -175,4 +175,15 @@
 .responsive-menu a:link, a:visited, a:hover, a:active {
     text-decoration: none; color: #ffffff;
 }
+.comments-sec h3{
+    margin-top: 8px;
+}
+.comments-sec span{
+    font-family: "Tahoma", serif;
+    font-style: italic;
+}
+sub {
+    vertical-align: sub !important;
+    font-size: smaller !important;
+}
 

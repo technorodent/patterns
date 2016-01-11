@@ -6,8 +6,54 @@
 |        </div>
 |       </div>
 |    </div>
+|   <div class="container">
+| <div class="eleven columns">
+|   <div class="post">
+|   <h2>#{title}</h2>
+|   <div class="post-meta">
+|       <span class="icon-calendar">
+|       </span>On 10 January 2016<span class="icon-author"></span>By Rob Warren
+|       <span class="icon-comment"></span>With <a href="#comment">--TODO: Insert Qty: 00 Comments</a>
+|</div>
+|   <div class="post-thumb"><!--a href="http://placehold.it/800x534&txt=Flowchart" rel="imagebox[gallery]" title="Flowchart"-->
+|       <img src="http://placehold.it/800x534&txt=Flowchart" alt=""/>
+|       <!--div class="overlay zoom">
+|   </div>
+|       <!--/a--></div>
+|       <div class="post-content">!{postContent}
+|       </div>
+|       <!-- End Post-->
+|       <!-- Comments -->
+|       <div class="comments-sec">
+|           <h3>Comments (Σ<span>x<span><sub>i</sub>)</h3>
+|           <ol class="commentlist">
+|           <li id="commentCollection">
+|               !{commentContent}
+|            </li>
+|           </ol>
+|       </div>
+| <div class="comments-sec">
+|     <h3>Leave a Comment</h3>
+|     <div id="editor" class="form_comment">
+|         <div>
+|             <label style="margin-top: 20px;">Name:</label>
+|             <input id="nameTxt" type="text" size="40" maxlength="60" value="">
+|         </div>
+|         <div>
+|             <label>Email: <span>*</span></label>
+|             <input id="mailTxt" type="text" size="40" maxlength="60" value="abcd@idiot.com">
+|         </div>
+|         <div>
+|             <label>Message: <span>*</span></label>
+|             <textarea id='editMe'></textarea>
+|         </div>
+|     </div>
+|     <div class="form_send"><input type="submit" onclick="return submitComment()" value="Submit"></div>
+| </div>
+|   </div>
+|  </div>
 
 block content
     include patterns/pattern-body.html
 
-
+|   </div>

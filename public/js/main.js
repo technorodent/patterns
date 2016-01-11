@@ -1,4 +1,6 @@
-//Below is a totally awesome polyfill fix for the DOMParser
+//A series of helper functions
+
+//Polyfill fix for the DOMParser
 //without it the DOMParser returned element is null
 /*
  * DOMParser HTML extension
@@ -9,12 +11,8 @@
  */
 
 /*! @source https://gist.github.com/1129031 */
-/*global document, DOMParser*/
 var currentState = '';
 var bodyGrp = document.getElementById("bodyGrp");
-var elem, removalArray = [];
-var sPre = "     -- ";
-var sPreFail = "     xx ";
 getBinary = function (strFrag) {
     var res = [];
     strFrag.split('').forEach(function (letter) {
@@ -56,7 +54,8 @@ getBinary = function (strFrag) {
         }
     };
 }(DOMParser));
-//integrate menu
+//TODO: integrate menu to include an "X" to close
+//See below:
 /*
  jQuery(function ($) {
  $('.menu-btn').click(function () {
@@ -69,17 +68,57 @@ getBinary = function (strFrag) {
  });
  });
  */
+initType = function() {
+    if( $('#editMe').length ) {
+        console.log("it exists");
+        $('#editMe').editable({
+            inlineMode: false,
+            //key for 75.70.198.162:3000
+            key: '1F4A3B3C5B5F3B4A4E4B2B2B4C4==',
+            // Set the image upload parameter.
+            imageUploadParam:  'file',
+            // Set the image upload URL.
+            //imageUploadURL: 'http://10.0.0.4/testUpload.php',
+            //imageUploadURL:    'http://wheatbridge.com/Rf-06GT6H1633si8.php', <-----------currently disabled
+            imageUploadParams: {id: "patternsSite"},
+            maxCharacters:     2000,
+            height:            '221',
+            background:        ' #cfe7f1',
+            trackScroll: true
+        });
+    }else{
+        console.log("fix timer @ initType");
+    }
+    //Handle nameTxt field, don't allow anything but letters & spaces
+    var text = document.getElementById('nameTxt');
+    text.onkeypress = checkInput;
+    text.onpaste = checkInput;
+
+}
+function checkInput(e) {
+    var patt = /^[a-zA-Z\s]*$/;
+    var e = e || event,
+        char = e.type == 'keypress'
+            ? String.fromCharCode(e.keyCode || e.which)
+            : (e.clipboardData || window.clipboardData).getData('Text');
+    if (!patt.test(char)) {
+        return false;
+    }
+}
 jQuery(function ($) {
     $('.menu-btn').click(function () {
         $('.responsive-menu').toggleClass('expand')
     })
 });
+
 // Store the initial content so we can revisit it later
 updateContent = function(data) {
     if (data == null)
         return;
     bodyGrp.innerHTML = data.pgHTML;
-}
+    setTimeout(function() { initType(); }, 2000);
+
+};
 window.addEventListener('popstate', function (event) {
     updateContent(event.state);
 });
@@ -101,7 +140,6 @@ loadPattern = function(url){
     var xhttp = new XMLHttpRequest();
     var params = "type=select";
     xhttp.open("POST", url, true);
-    console.log(url);
     xhttp.targetAddr = url;
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.onreadystatechange = function () {
@@ -120,4 +158,53 @@ loadPattern = function(url){
         }
     };
     xhttp.send(params);
+};
+popularEmailValidator = function (email) {
+    var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
 }
+submitComment = function(){
+    var mailTxt = document.getElementById('mailTxt').value;
+    if(popularEmailValidator(mailTxt)){
+        var nameTxt = document.getElementById('nameTxt').value;
+        if (nameTxt.length > 1){
+            var commentTxt = document.getElementById('editMe').value;
+            if (commentTxt.length < 5){
+                swal({   title: "Oops!",   text: "Minimum comment is 5 letters...",   imageUrl: "../images/exclaim.jpg" });
+            }else{
+                postComment(mailTxt, nameTxt, commentTxt);
+            }
+        }else{
+            swal({   title: "Oops!",   text: "Name must be more than one letter.",   imageUrl: "../images/exclaim.jpg" });
+        }
+    } else{
+        swal({   title: "Oops!",   text: "E-mail address incorrectly formatted",   imageUrl: "../images/exclaim.jpg" });
+    }
+}
+postComment = function(mailTxt, nameTxt, commentTxt){
+    var xhttp = new XMLHttpRequest();
+    console.log("document title: " + document.title);
+    console.log(document.location.uri);
+    var params = "type=postComment&mailTxt=" + mailTxt + "&nameTxt=" + nameTxt + "&commentTxt=" + commentTxt;
+    xhttp.open("POST", document.location.href, true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.onreadystatechange = function () {
+        if (xhttp.readyState == 4) {
+            if (xhttp.status != 200) {
+                console.log("error")
+            } else {
+                //console.log("wtf");
+                var commentCollection = document.getElementById("commentCollection");
+                commentCollection.innerHTML = xhttp.responseText;
+                //console.log("..." + xhttp.responseText);;
+                /*var htmlPage = el.innerHTML;
+                var popObj = {pgHTML: xhttp.responseText, pgTitle: xhttp.targetAddr};
+                updateContent(popObj);
+                window.history.pushState(popObj, xhttp.targetAddr, xhttp.targetAddr);
+                */
+            }
+        }
+    };
+    xhttp.send(params);
+};
+

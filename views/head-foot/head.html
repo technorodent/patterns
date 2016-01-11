@@ -27,8 +27,15 @@
 	<!-- daVinci Font
 		================================================== -->
 	<link href='css/mixins.css' rel='stylesheet' type='text/css'>
-	<!-- JS
-	================================================== -->
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link href="../css/froala_editor.min.css" rel="stylesheet" type="text/css">
+	<link href="../css/froala_style.min.css" rel="stylesheet" type="text/css">
+	<link href="../css/froala_content.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/sweetalert.css">
+
+	<!-- JS ================================================== -->
+	<script src="../js/sweetalert.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="js/jquery.isotope.min.js"></script>
 	<script src="js/custom.js"></script>
@@ -41,7 +48,18 @@
 	<script src="js/twitter.js"></script>
 	<script src="js/tooltip.js"></script>
 	<script src="js/effects.js"></script>
-
+	<script src="../js/froala_editor.min.js"></script>
+	<!--[if lt IE 9]>
+	<script src="../js/froala_editor_ie8.min.js"></script>
+	<![endif]-->
+	<script src="../js/plugins/tables.min.js"></script>
+	<script src="../js/plugins/lists.min.js"></script>
+	<script src="../js/plugins/colors.min.js"></script>
+	<script src="../js/plugins/media_manager.min.js"></script>
+	<script src="../js/plugins/font_family.min.js"></script>
+	<script src="../js/plugins/font_size.min.js"></script>
+	<script src="../js/plugins/block_styles.min.js"></script>
+	<script src="../js/plugins/video.min.js"></script>
 </head>
 <body>
 
@@ -130,7 +148,7 @@
 									<li><label><a loc="/general-patterns/for-loop">for loops</a></label></li>
 									<li><label><a loc="/general-patterns/for-in-loop">for-in loops</a></label></li>
 									<li><label><a loc="/general-patterns/augment-built-in-prototypes">(Not) Augmenting Built-in Prototypes</a></label></li>
-									<li><label><a loc="general-patterns/switch">switch Pattern</a></label></li>
+									<li><label><a loc="/general-patterns/switch">Switch Pattern</a></label></li>
 									<li><label><a loc="/general-patterns/implied-typecasting">Implied Typecasting</a></label></li>
 									<li><label><a loc="/general-patterns/eval">Avoiding eval()</a></label></li>
 									<li><label><a loc="/general-patterns/number-conversion">Number Conversions with parseInt()</a></label></li>
@@ -168,11 +186,11 @@
 											<li><label><a loc="/jquery/plugin/best-options">	Best options	</a></label></li>
 											<li><label><a loc="/jquery/plugin/custom-events">	Custom events (Pseudo Pub/Sub)	</a></label></li>
 											<li><label><a loc="/jquery/plugin/highly-configurable">	'Highly configurable' mutable	</a></label></li>
-											<li><label><a loc="/jquery/plugin/ui-widget-requireJS module">	UI Widget factory	</a></label></li>
-											<li><label><a loc="/jquery/plugin/ui-widget-factory-bridge">	UI Widget factory "bridge"	</a></label></li>
-											<li><label><a loc="/jquery/plugin/ui-widget-factory-mobile">	UI Widget factory for jQuery mobile	</a></label></li>
-											<li><label><a loc="/jquery/plugin/ui-widget-factory">	UI Widget + RequireJS module	</a></label></li>
-											<li><label><a loc="/jquery/plugin/universal-module">	Universal Module Definition pattern	</a></label></li>
+											<li><label><a loc="/jquery/plugin/ui-widget-requireJS module">	UI  Factory	</a></label></li>
+											<li><label><a loc="/jquery/plugin/ui-widget-factory-bridge">	UI Widget "Bridge"	</a></label></li>
+											<li><label><a loc="/jquery/plugin/ui-widget-factory-mobile">	UI jQuery Mobile	</a></label></li>
+											<li><label><a loc="/jquery/plugin/ui-widget-factory">	UI Widget + RequireJS	</a></label></li>
+											<li><label><a loc="/jquery/plugin/universal-module">	Universal Module Def.	</a></label></li>
 
 										</ul>
 									</li>
@@ -248,7 +266,7 @@
 											<li><label><a loc="/code-reuse/classical/rent-a-constructor">	Rent a constructor	</a></label></li>
 											<li><label><a loc="/code-reuse/classical/rent-and-set-prototype">	Rent and Set Prototype	</a></label></li>
 											<li><label><a loc="/code-reuse/classical/share">	Share the Prototype	</a></label></li>
-											<li><label><a loc="/code-reuse/classical/temporary-constructor">	A Temporary Constructor	</a></label></li>
+											<li><label><a loc="/code-reuse/classical/temporary-constructor">Temporary Constructor	</a></label></li>
 											<li><label><a loc="/code-reuse/classical/class">	Class	</a></label></li>
 
 										</ul>
@@ -256,7 +274,7 @@
 									<li><input type="checkbox" id="cb9b"/><label for="cb9b">Preferred</label>
 										<ul>
 											<li><label><a loc="/code-reuse/preferred/prototypal">	Prototypal Inheritance	</a></label></li>
-											<li><label><a loc="/code-reuse/preferred/inheritance">	Inheritance by Copying Properties	</a></label></li>
+											<li><label><a loc="/code-reuse/preferred/inheritance">	Inheritance by Copying</a></label></li>
 											<li><label><a loc="/code-reuse/preferred/mix-ins">	Mix-ins	</a></label></li>
 											<li><label><a loc="/code-reuse/preferred/borrowing">	Borrowing Methods	</a></label></li>
 										</ul>
