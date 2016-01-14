@@ -13,26 +13,38 @@
 |   <div class="post-meta">
 |       <span class="icon-calendar">
 |       </span>On 10 January 2016<span class="icon-author"></span>By Rob Warren
-|       <span class="icon-comment"></span>With <a href="#comment">--TODO: Insert Qty: 00 Comments</a>
+|       <span class="icon-comment"></span>With <a id="comment-total" href="#comment-fields"></a>
 |</div>
-|   <div class="post-thumb"><!--a href="http://placehold.it/800x534&txt=Flowchart" rel="imagebox[gallery]" title="Flowchart"-->
+|   <div id="pattern-flowchart" class="post-thumb"><!--a href="http://placehold.it/800x534&txt=Flowchart" rel="imagebox[gallery]" title="Flowchart"-->
 |       <img src="http://placehold.it/800x534&txt=Flowchart" alt=""/>
 |       <!--div class="overlay zoom">
 |   </div>
 |       <!--/a--></div>
-|       <div class="post-content">!{postContent}
+|       <div id="discussion" class="post-content">
+|           !{postContent}
 |       </div>
 |       <!-- End Post-->
+|       <!-- Console -->
+|        <div id="console-test">
+|           <h3>Test in Console</h3>
+|           <div class="code-window">
+|               <textarea id="source-code" ></textarea>
+|           </div>
+|           <div class="i-terminal">
+|               <iframe id="terminal-frame"></iframe>
+|           </div>
+|        </div>
+|       <!-- End Console-->
 |       <!-- Comments -->
-|       <div class="comments-sec">
+|       <div id="comment-fields" class="comments-sec">
 |           <h3>Comments (Σ<span>x<span><sub>i</sub>)</h3>
 |           <ol class="commentlist">
-|           <li id="commentCollection">
+|           <li id="comment-collection">
 |               !{commentContent}
 |            </li>
 |           </ol>
 |       </div>
-| <div class="comments-sec">
+| <div id="comment-box" class="comments-sec">
 |     <h3>Leave a Comment</h3>
 |     <div id="editor" class="form_comment">
 |         <div>
@@ -41,7 +53,7 @@
 |         </div>
 |         <div>
 |             <label>Email: <span>*</span></label>
-|             <input id="mailTxt" type="text" size="40" maxlength="60" value="abcd@idiot.com">
+|             <input id="mailTxt" type="text" size="40" maxlength="60" value="">
 |         </div>
 |         <div>
 |             <label>Message: <span>*</span></label>
@@ -51,6 +63,12 @@
 |     <div class="form_send"><input type="submit" onclick="return submitComment()" value="Submit"></div>
 | </div>
 |   </div>
+|   <div id="appendix">
+|<h3>Appendix</h3>
+|   </div>
+|   <div id="footnotes">
+|       <h3>Footnotes</h3>
+|    </div>
 |  </div>
 
 block content

@@ -77,7 +77,6 @@
     margin-top: 25px;
 }
 
-
 @media only screen and (min-width: 480px) and (max-width: 767px) {
     .menu-btn {
         margin-top: 0px;
@@ -122,36 +121,47 @@
 .mobile-nav {
     color: #ffffff;
 }
-.responsive-menu ul { list-style-type: none; }
-.responsive-menu label{
+
+.responsive-menu ul {
+    list-style-type: none;
+}
+
+.responsive-menu label {
     padding: 3px 0 0 25px;
     color: white;
 }
+
 .responsive-menu li {
     margin: 10px;
     padding: 5px;
     font-size: small;
 }
-.responsive-menu input[type=checkbox] { display: none; }
+
+.responsive-menu input[type=checkbox] {
+    display: none;
+}
+
 .responsive-menu input[type=checkbox] ~ ul {
     max-height: 0;
     max-width: 0;
     opacity: 0;
     overflow: hidden;
-    white-space:nowrap;
-    -webkit-transition:all 1s ease;
-    -moz-transition:all 1s ease;
-    -o-transition:all 1s ease;
-    transition:all 1s ease;
+    white-space: nowrap;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
 
 }
+
 .responsive-menu input[type=checkbox]:checked ~ ul {
     max-height: 100%;
     max-width: 100%;
     opacity: 1;
 }
-.responsive-menu input[type=checkbox] + label:before{
-    transform-origin:25% 50%;
+
+.responsive-menu input[type=checkbox] + label:before {
+    transform-origin: 25% 50%;
     border: 8px solid transparent;
     border-width: 6px 10px;
     border-left-color: white;
@@ -162,28 +172,72 @@
     text-align: center;
     content: '';
     color: #AAAFAB;
-    -webkit-transition:all .5s ease;
-    -moz-transition:all .5s ease;
-    -o-transition:all .5s ease;
-    transition:all .5s ease;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
     position: absolute;
     margin-top: 4px;
 }
+
 .responsive-menu input[type=checkbox]:checked + label:before {
     transform: rotate(90deg);
 }
+
 .responsive-menu a:link, a:visited, a:hover, a:active {
-    text-decoration: none; color: #ffffff;
+    text-decoration: none;
+    color: #ffffff;
 }
-.comments-sec h3{
+
+.comments-sec h3 {
     margin-top: 8px;
 }
-.comments-sec span{
+
+.comments-sec span {
     font-family: "Tahoma", serif;
     font-style: italic;
 }
+
 sub {
     vertical-align: sub !important;
     font-size: smaller !important;
 }
 
+.comment-by span.reply a:hover {
+    cursor: pointer !important;
+    color: red !important;
+    font-weight: bold;
+}
+
+.comment-by span.reply a:visited {
+    color: black !important;
+}
+
+.i-terminal {
+    height: 150px;
+    background-color: black !important;
+}
+
+iframe {
+    width: 100%;
+    padding: 0;
+    border: 0;
+    height: 100%;
+}
+
+.code-window {
+    height: 300px;
+    margins 0 0 0 0;
+}
+
+.code-window textarea {
+    height: 90%;
+    width: 97%;
+}
+
+#console-test .froala-editor.f-basic {
+    visibility: hidden;
+}
+#source-code {
+    overflow:auto;
+}

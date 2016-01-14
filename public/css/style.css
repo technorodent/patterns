@@ -389,7 +389,7 @@ ol li ol.childlist .comment-des{float:right; width:88%;}
 	margin-bottom: 9px;
 }
 
-.widget-categories a {color: #676767;	display: block;}
+.widget-categories a {color: #676767 !important;	display: block;}
 .widget-categories a:hover {color: #6f9c00;}
 
 .widget-categories li {

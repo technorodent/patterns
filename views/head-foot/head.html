@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <!--[if lt IE 7 ]>
 <html class="ie ie6" lang="en"><![endif]-->
 <!--[if IE 7 ]>
@@ -6,7 +5,7 @@
 <!--[if IE 8 ]>
 <html class="ie ie8" lang="en"><![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
-<html lang="en"><!--<![endif]-->
+<!--<![endif]-->
 <head>
 	<!-- Basic Page Needs
 	================================================== -->
@@ -26,13 +25,15 @@
 				type='text/css'>
 	<!-- daVinci Font
 		================================================== -->
-	<link href='css/mixins.css' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link href="../css/froala_editor.min.css" rel="stylesheet" type="text/css">
 	<link href="../css/froala_style.min.css" rel="stylesheet" type="text/css">
 	<link href="../css/froala_content.min.css" rel="stylesheet" type="text/css">
+	<link href="../css/jquery-linedtextarea.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/sweetalert.css">
+	<link href='css/mixins.css' rel='stylesheet' type='text/css'>
 
 	<!-- JS ================================================== -->
 	<script src="../js/sweetalert.min.js"></script>
@@ -60,77 +61,77 @@
 	<script src="../js/plugins/font_size.min.js"></script>
 	<script src="../js/plugins/block_styles.min.js"></script>
 	<script src="../js/plugins/video.min.js"></script>
+	<!--script src="../js/jquery-linedtextarea.js"></script-->
 </head>
 <body>
 
 <!-- Primary Page Layout
 ================================================== -->
-
 <!-- Header -->
 <header id="header">
 	<!-- 960 Container -->
 	<div class="container">
-		<section id="logo-hamburgerMenu">
-			<!-- Logo -->
-			<div class="four columns">
-				<div id="logo"><a href="#"><img src="images/logo.png" alt=""/></a></div>
-			</div>
-			<!-- Native Menu Removed-->
-			<!-- Installed the Following Hamburger Menu -->
-			<div class="twelve columns">
-				<div class="mobile-nav">
-					<div class="menu-btn" id="menu-btn">
-						<div></div>
-						<span></span>
-						<span></span>
-						<span></span>
+		<nav id="responsive-menu">
+			<div id="logo-hamburgerMenu">
+				<!-- Logo -->
+				<div class="four columns">
+					<div id="logo"><a href="#"><img src="images/logo.png" alt=""/></a></div>
+				</div>
+				<!-- Native Menu Removed-->
+				<!-- Installed the Following Hamburger Menu -->
+				<div class="twelve columns">
+					<div class="mobile-nav">
+						<div class="menu-btn" id="menu-btn">
+							<div></div>
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
 					</div>
 				</div>
 			</div>
-		</section>
-		<nav id="responsive-menu">
 			<div class="twelve columns">
 				<div class="responsive-menu">
 					<div class="one-third column">
-						<h3 class="menu-headline">Standard Organizers</h3>
+						<h3 class="menu-headline">Gang of Four Organizers</h3>
 						<ul>
 							<li><input type="checkbox" id="cb1"/><label for="cb1">Creational</label>
 								<ul>
-									<li><label>Abstract Factory</label></li>
-									<li><label>Builder</label></li>
-									<li><label>Factory Method</label></li>
-									<li><label>Prototype</label></li>
-									<li><label>Singleton</label></li>
+									<li><label><a id="/creational/abstract-factory">Abstact Factory</a></label></li>
+									<li><label><a id="/creational/builder">Builder</a></label></li>
+									<li><label><a id="/creational/factory-method">Factory Method</a></label></li>
+									<li><label><a id="/creational/prototype">Prototype</a></label></li>
+									<li><label><a id="/creational/singleton">Singleton</a></label></li>
 								</ul>
 							</li>
 						</ul>
 						<ul>
 							<li><input type="checkbox" id="cb2"/><label for="cb2">Structural</label>
 								<ul>
-									<li><label>Adapter</label></li>
-									<li><label>Bridge</label></li>
-									<li><label>Composite</label></li>
-									<li><label>Decorator</label></li>
-									<li><label>Facade</label></li>
-									<li><label>Flyweight</label></li>
-									<li><label>Proxy</label></li>
+									<li><label><a id="/structural/adapter">Adapter</a></label></li>
+									<li><label><a id="/structural/bridge">Bridge</a></label></li>
+									<li><label><a id="/structural/composite">Composite</a></label></li>
+									<li><label><a id="/structural/decorator">Decorator</a></label></li>
+									<li><label><a id="/structural/facade">Facade</a></label></li>
+									<li><label><a id="/structural/flyweight">Flyweight</a></label></li>
+									<li><label><a id="/structural/proxy">Proxy</a></label></li>
 								</ul>
 							</li>
 						</ul>
 						<ul>
 							<li><input type="checkbox" id="cb3"/><label for="cb3">Behavioral</label>
 								<ul>
-									<li><label>Chain of Responsibility</label></li>
-									<li><label>Command</label></li>
-									<li><label>Interpreter</label></li>
-									<li><label>Iterator</label></li>
-									<li><label>Mediator</label></li>
-									<li><label>Momento</label></li>
-									<li><label>Observer</label></li>
-									<li><label>State</label></li>
-									<li><label>Strategy</label></li>
-									<li><label>Template Method</label></li>
-									<li><label>Visitor</label></li>
+									<li><label><a id="/behavioral/chain-of-responsibility">Chain of Responsibility</a></label></li>
+									<li><label><a id="/behavioral/command">Command</a></label></li>
+									<li><label><a id="/behavioral/interpreter">Interpreter</a></label></li>
+									<li><label><a id="/behavioral/iterator">Iterator</a></label></li>
+									<li><label><a id="/behavioral/mediator">Mediator</a></label></li>
+									<li><label><a id="/behavioral/momento">Momento</a></label></li>
+									<li><label><a id="/behavioral/observer">Observer</a></label></li>
+									<li><label><a id="/behavioral/state">State</a></label></li>
+									<li><label><a id="/behavioral/strategy">Strategy</a></label></li>
+									<li><label><a id="/behavioral/template">Template</a></label></li>
+									<li><label><a id="/behavioral/visitor">Visitor</a></label></li>
 								</ul>
 							</li>
 						</ul>
@@ -140,105 +141,111 @@
 						<ul>
 							<li><input type="checkbox" id="cb4"/><label for="cb4">General Patterns</label>
 								<ul>
-									<li><label><a loc="/general-patterns/function-declarations">Function Declarations</a></label></li>
-									<li><label><a loc="/general-patterns/conditionals">Conditionals</a></label></li>
-									<li><label><a loc="/general-patterns/global-object-access">Access to the Global Object</a></label></li>
-									<li><label><a loc="/general-patterns/single-var">Single var Pattern</a></label></li>
-									<li><label><a loc="/general-patterns/hoisting">Hoisting</a></label></li>
-									<li><label><a loc="/general-patterns/for-loop">for loops</a></label></li>
-									<li><label><a loc="/general-patterns/for-in-loop">for-in loops</a></label></li>
-									<li><label><a loc="/general-patterns/augment-built-in-prototypes">(Not) Augmenting Built-in Prototypes</a></label></li>
-									<li><label><a loc="/general-patterns/switch">Switch Pattern</a></label></li>
-									<li><label><a loc="/general-patterns/implied-typecasting">Implied Typecasting</a></label></li>
-									<li><label><a loc="/general-patterns/eval">Avoiding eval()</a></label></li>
-									<li><label><a loc="/general-patterns/number-conversion">Number Conversions with parseInt()</a></label></li>
-									<li><label><a loc="/general-patterns/globals">Minimizing Globals</a></label></li>
-									<li><label><a loc="/general-patterns/globals">Problematic Globals</a></label></li>
+									<li><label><a id="/general-patterns/function-declarations">Function Declarations</a></label></li>
+									<li><label><a id="/general-patterns/conditionals">Conditionals</a></label></li>
+									<li><label><a id="/general-patterns/global-object-access">Access to the Global Object</a></label></li>
+									<li><label><a id="/general-patterns/single-var">Single var Pattern</a></label></li>
+									<li><label><a id="/general-patterns/hoisting">Hoisting</a></label></li>
+									<li><label><a id="/general-patterns/for-loop">for loops</a></label></li>
+									<li><label><a id="/general-patterns/for-in-loop">for-in loops</a></label></li>
+									<li><label><a id="/general-patterns/augment-built-in-prototypes">(Not) Augmenting Built-in
+										Prototypes</a></label></li>
+									<li><label><a id="/general-patterns/switch">Switch Pattern</a></label></li>
+									<li><label><a id="/general-patterns/implied-typecasting">Implied Typecasting</a></label></li>
+									<li><label><a id="/general-patterns/eval">Avoiding eval()</a></label></li>
+									<li><label><a id="/general-patterns/number-conversion">Number Conversions with parseInt()</a></label>
+									</li>
+									<li><label><a id="/general-patterns/globals-min">Minimizing Globals</a></label></li>
+									<li><label><a id="/general-patterns/globals">Problematic Globals</a></label></li>
 								</ul>
 							</li>
 							<li><input type="checkbox" id="cb5"/><label for="cb5">jQuery</label>
 								<ul>
 									<li><input type="checkbox" id="cb5a"/><label for="cb5a">Selector</label>
 										<ul>
-											<li><label><a loc="/jquery/selector/left-and-right">Left and Right </a></label></li>
-											<li><label><a loc="/jquery/selector/decending-from-id">Decending from id </a></label></li>
-											<li><label><a loc="/jquery/selector/universal-selector">Universal Selector </a></label></li>
-											<li><label><a loc="/jquery/selector/be-specific">Be Specific when Needed </a></label></li>
+											<li><label><a id="/jquery/selector/left-and-right">Left and Right </a></label></li>
+											<li><label><a id="/jquery/selector/decending-from-id">Decending from id </a></label></li>
+											<li><label><a id="/jquery/selector/universal-selector">Universal Selector </a></label></li>
+											<li><label><a id="/jquery/selector/be-specific">Be Specific when Needed </a></label></li>
 
 										</ul>
 									</li>
 									<li><input type="checkbox" id="cb5b"/><label for="cb5b">Publish-Subscribe</label>
 										<ul>
-											<li><label><a loc="/jquery/publish-subscribe/custom-events">jQ Custom Events </a></label></li>
-											<li><label><a loc="/jquery/publish-subscribe/using-callbacks">jQ Callbacks </a></label></li>
-											<li><label><a loc="/jquery/publish-subscribe/using-observable">jQ Observable </a></label></li>
-											<li><label><a loc="/jquery/publish-subscribe/using-plugins">jQ Plugins </a></label></li>
+											<li><label><a id="/jquery/publish-subscribe/custom-events">jQ Custom Events </a></label></li>
+											<li><label><a id="/jquery/publish-subscribe/using-callbacks">jQ Callbacks </a></label></li>
+											<li><label><a id="/jquery/publish-subscribe/using-observable">jQ Observable </a></label></li>
+											<li><label><a id="/jquery/publish-subscribe/using-plugins">jQ Plugins </a></label></li>
 
 										</ul>
 									</li>
 									<li><input type="checkbox" id="cb5c"/><label for="cb5c">jQuery Plugins</label>
 										<ul>
-											<li><label><a loc="/jquery/plugin/basic">	Basic	</a></label></li>
-											<li><label><a loc="/jquery/plugin/extend">	Extend	</a></label></li>
-											<li><label><a loc="/jquery/plugin/lightweight">	Lightweight	</a></label></li>
-											<li><label><a loc="/jquery/plugin/namespaced">	Namespaced pattern	</a></label></li>
-											<li><label><a loc="/jquery/plugin/prototypal">	Prototypal inheritance	</a></label></li>
-											<li><label><a loc="/jquery/plugin/best-options">	Best options	</a></label></li>
-											<li><label><a loc="/jquery/plugin/custom-events">	Custom events (Pseudo Pub/Sub)	</a></label></li>
-											<li><label><a loc="/jquery/plugin/highly-configurable">	'Highly configurable' mutable	</a></label></li>
-											<li><label><a loc="/jquery/plugin/ui-widget-requireJS module">	UI  Factory	</a></label></li>
-											<li><label><a loc="/jquery/plugin/ui-widget-factory-bridge">	UI Widget "Bridge"	</a></label></li>
-											<li><label><a loc="/jquery/plugin/ui-widget-factory-mobile">	UI jQuery Mobile	</a></label></li>
-											<li><label><a loc="/jquery/plugin/ui-widget-factory">	UI Widget + RequireJS	</a></label></li>
-											<li><label><a loc="/jquery/plugin/universal-module">	Universal Module Def.	</a></label></li>
+											<li><label><a id="/jquery/plugin/basic"> Basic </a></label></li>
+											<li><label><a id="/jquery/plugin/extend"> Extend </a></label></li>
+											<li><label><a id="/jquery/plugin/lightweight"> Lightweight </a></label></li>
+											<li><label><a id="/jquery/plugin/namespaced"> Namespaced pattern </a></label></li>
+											<li><label><a id="/jquery/plugin/prototypal"> Prototypal inheritance </a></label></li>
+											<li><label><a id="/jquery/plugin/best-options"> Best options </a></label></li>
+											<li><label><a id="/jquery/plugin/custom-events"> Custom events (Pseudo Pub/Sub) </a></label></li>
+											<li><label><a id="/jquery/plugin/highly-configurable"> 'Highly configurable' mutable </a></label>
+											</li>
+											<li><label><a id="/jquery/plugin/ui-widget-requireJS-module"> UI Widget + RequireJS </a></label>
+											</li>
+											<li><label><a id="/jquery/plugin/ui-widget-factory-bridge"> UI Widget "Bridge" </a></label></li>
+											<li><label><a id="/jquery/plugin/ui-widget-factory-mobile"> UI jQuery Mobile </a></label></li>
+											<li><label><a id="/jquery/plugin/ui-widget-factory"> UI Factory </a></label></li>
+											<li><label><a id="/jquery/plugin/universal-module"> Universal Module Def. </a></label></li>
 
 										</ul>
 									</li>
-									<li><label><a loc="/jquery/general/requery">Requery </a></label></li>
-									<li><label><a loc="/jquery/general/append">Append </a></label></li>
-									<li><label><a loc="/jquery/general/data">Data </a></label></li>
-									<li><label><a loc="/jquery/general/context">Context and Find </a></label></li>
-									<li><label><a loc="/jquery/general/detach">Detach</a></label></li>
-									<li><label><a loc="/jquery/general/event-delegation">Event Delegation </a></label></li>
-									<li><label><a loc="/jquery/general/selector-cache">Selector Cache </a></label></li>
-									<li><label><a loc="/jquery/general/window-scroll-event">Window Scroll Event </a></label></li>
+									<li><label><a id="/jquery/general/requery">Requery </a></label></li>
+									<li><label><a id="/jquery/general/append">Append </a></label></li>
+									<li><label><a id="/jquery/general/data">Data </a></label></li>
+									<li><label><a id="/jquery/general/context">Context and Find </a></label></li>
+									<li><label><a id="/jquery/general/detach">Detach</a></label></li>
+									<li><label><a id="/jquery/general/event-delegation">Event Delegation </a></label></li>
+									<li><label><a id="/jquery/general/selector-cache">Selector Cache </a></label></li>
+									<li><label><a id="/jquery/general/window-scroll-event">Window Scroll Event </a></label></li>
 								</ul>
 							</li>
 							<li><input type="checkbox" id="cb6"/><label for="cb6">Literals and Constructors</label>
 								<ul>
-									<li><label><a loc="/literals-constructors/object-literal">	Object literal	</a></label></li>
-									<li><label><a loc="/literals-constructors/enforcing-new">	Enforcing new	</a></label></li>
-									<li><label><a loc="/literals-constructors/array-literal">	Array literal	</a></label></li>
-									<li><label><a loc="/literals-constructors/json">	Working with JSON	</a></label></li>
-									<li><label><a loc="/literals-constructors/primitive-wrapper">	Primitive wrappers	</a></label></li>
-									<li><label><a loc="/literals-constructors/regular-expression">	Regular expression literal	</a></label></li>
+									<li><label><a id="/literals-constructors/object-literal"> Object literal </a></label></li>
+									<li><label><a id="/literals-constructors/enforcing-new"> Enforcing new </a></label></li>
+									<li><label><a id="/literals-constructors/array-literal"> Array literal </a></label></li>
+									<li><label><a id="/literals-constructors/json"> Working with JSON </a></label></li>
+									<li><label><a id="/literals-constructors/primitive-wrapper"> Primitive wrappers </a></label></li>
+									<li><label><a id="/literals-constructors/regular-expression"> Regular expression literal </a></label>
+									</li>
 								</ul>
 							</li>
 							<li><input type="checkbox" id="cb7"/><label for="cb7">Function</label>
 								<ul>
 									<li><input type="checkbox" id="cb7a"/><label for="cb7a">API Patterns</label>
 										<ul>
-											<li><label><a loc="/functions/api/callback">	Callback Patterns	</a></label></li>
-											<li><label><a loc="/functions/api/configuration">	Configuration Objects	</a></label></li>
-											<li><label><a loc="/functions/api/returning">	Returning Functions	</a></label></li>
-											<li><label><a loc="/functions/api/currying">	Currying	</a></label></li>
-											<li><label><a loc="/functions/api/partial">	Partial Application	</a></label></li>
+											<li><label><a id="/functions/api/callback"> Callback Patterns </a></label></li>
+											<li><label><a id="/functions/api/configuration"> Configuration Objects </a></label></li>
+											<li><label><a id="/functions/api/returning"> Returning Functions </a></label></li>
+											<li><label><a id="/functions/api/currying"> Currying </a></label></li>
+											<li><label><a id="/functions/api/partial"> Partial Application </a></label></li>
 
 										</ul>
 									</li>
 									<li><input type="checkbox" id="cb7b"/><label for="cb7b">Initialization Patterns</label>
 										<ul>
-											<li><label><a loc="/functions/initialization/immediate">	Immediate Functions	</a></label></li>
-											<li><label><a loc="/functions/initialization/immediate-object">	Immediate Object Initialization	</a></label></li>
-											<li><label><a loc="/functions/initialization/init-time-branch
-">	Init-Time branching	</a></label></li>
+											<li><label><a id="/functions/initialization/immediate"> Immediate Functions </a></label></li>
+											<li><label><a id="/functions/initialization/immediate-object"> Immediate Object
+												Initialization </a></label></li>
+											<li><label><a id="/functions/initialization/init-time-branch">Init-Time branching </a></label>
+											</li>
 
 										</ul>
 									</li>
 									<li><input type="checkbox" id="cb7c"/><label for="cb7c">Performance</label>
 										<ul>
-											<li><label><a loc="/functions/performance/memorization">	Memorization	</a></label></li>
-											<li><label><a loc="/functions/performance/self-defining">	Self-defining functions	</a></label></li>
+											<li><label><a id="/functions/performance/memorization"> Memorization </a></label></li>
+											<li><label><a id="/functions/performance/self-defining"> Self-defining functions </a></label></li>
 
 										</ul>
 									</li>
@@ -246,37 +253,40 @@
 							</li>
 							<li><input type="checkbox" id="cb8"/><label for="cb8">Object Creation</label>
 								<ul>
-									<li><label><a loc="/object-creation/namespace">	Namespace	</a></label></li>
-									<li><label><a loc="/object-creation/declaring-dependencies">	Declaring Dependencies	</a></label></li>
-									<li><label><a loc="/object-creation/private-properties">	Private Properties and Methods	</a></label></li>
-									<li><label><a loc="/object-creation/revelation">	Revelation Pattern	</a></label></li>
-									<li><label><a loc="/object-creation/module">	Module Pattern	</a></label></li>
-									<li><label><a loc="/object-creation/sandbox">	Sandbox	</a></label></li>
-									<li><label><a loc="/object-creation/static-members">	Static Members	</a></label></li>
-									<li><label><a loc="/object-creation/object-constants">	Object Constants	</a></label></li>
-									<li><label><a loc="/object-creation/chaining-pattern">	Chaining Pattern	</a></label></li>
-									<li><label><a loc="/object-creation/method-method">	method() Method	</a></label></li>
+									<li><label><a id="/object-creation/namespace"> Namespace </a></label></li>
+									<li><label><a id="/object-creation/declaring-dependencies"> Declaring Dependencies </a></label></li>
+									<li><label><a id="/object-creation/private-properties"> Private Properties and Methods </a></label>
+									</li>
+									<li><label><a id="/object-creation/revelation"> Revelation Pattern </a></label></li>
+									<li><label><a id="/object-creation/module"> Module Pattern </a></label></li>
+									<li><label><a id="/object-creation/sandbox"> Sandbox </a></label></li>
+									<li><label><a id="/object-creation/static-members"> Static Members </a></label></li>
+									<li><label><a id="/object-creation/object-constants"> Object Constants </a></label></li>
+									<li><label><a id="/object-creation/chaining-pattern"> Chaining Pattern </a></label></li>
+									<li><label><a id="/object-creation/method-method"> method() Method </a></label></li>
 								</ul>
 							</li>
 							<li><input type="checkbox" id="cb9"/><label for="cb9">Code Reuse</label>
 								<ul>
 									<li><input type="checkbox" id="cb9a"/><label for="cb9a">Classical: Deprecated</label>
 										<ul>
-											<li><label><a loc="/code-reuse/classical/default">	The default pattern	</a></label></li>
-											<li><label><a loc="/code-reuse/classical/rent-a-constructor">	Rent a constructor	</a></label></li>
-											<li><label><a loc="/code-reuse/classical/rent-and-set-prototype">	Rent and Set Prototype	</a></label></li>
-											<li><label><a loc="/code-reuse/classical/share">	Share the Prototype	</a></label></li>
-											<li><label><a loc="/code-reuse/classical/temporary-constructor">Temporary Constructor	</a></label></li>
-											<li><label><a loc="/code-reuse/classical/class">	Class	</a></label></li>
+											<li><label><a id="/code-reuse/classical/default"> The default pattern </a></label></li>
+											<li><label><a id="/code-reuse/classical/rent-a-constructor"> Rent a constructor </a></label></li>
+											<li><label><a id="/code-reuse/classical/rent-and-set-prototype"> Rent and Set
+												Prototype </a></label></li>
+											<li><label><a id="/code-reuse/classical/share"> Share the Prototype </a></label></li>
+											<li><label><a id="/code-reuse/classical/temporary-constructor">Temporary Constructor </a></label>
+											</li>
+											<li><label><a id="/code-reuse/classical/class"> Class </a></label></li>
 
 										</ul>
 									</li>
 									<li><input type="checkbox" id="cb9b"/><label for="cb9b">Preferred</label>
 										<ul>
-											<li><label><a loc="/code-reuse/preferred/prototypal">	Prototypal Inheritance	</a></label></li>
-											<li><label><a loc="/code-reuse/preferred/inheritance">	Inheritance by Copying</a></label></li>
-											<li><label><a loc="/code-reuse/preferred/mix-ins">	Mix-ins	</a></label></li>
-											<li><label><a loc="/code-reuse/preferred/borrowing">	Borrowing Methods	</a></label></li>
+											<li><label><a id="/code-reuse/preferred/prototypal"> Prototypal Inheritance </a></label></li>
+											<li><label><a id="/code-reuse/preferred/inheritance"> Inheritance by Copying</a></label></li>
+											<li><label><a id="/code-reuse/preferred/mix-ins"> Mix-ins </a></label></li>
+											<li><label><a id="/code-reuse/preferred/borrowing"> Borrowing Methods </a></label></li>
 										</ul>
 									</li>
 
@@ -286,27 +296,27 @@
 								<ul>
 									<li><input type="checkbox" id="cb10a"/><label for="cb10a">Creational</label>
 										<ul>
-											<li><label><a loc="/design/creational/builder">	Builder	</a></label></li>
-											<li><label><a loc="/design/creational/factory">	Factory method	</a></label></li>
-											<li><label><a loc="/design/creational/singleton">	Singleton	</a></label></li>
+											<li><label><a id="/design/creational/builder"> Builder </a></label></li>
+											<li><label><a id="/design/creational/factory"> Factory method </a></label></li>
+											<li><label><a id="/design/creational/singleton"> Singleton </a></label></li>
 
 										</ul>
 									</li>
 									<li><input type="checkbox" id="cb10b"/><label for="cb10b">Structural</label>
 										<ul>
-											<li><label><a loc="/design/structural/decorator">	Decorator	</a></label></li>
-											<li><label><a loc="/design/structural/facade">	Facade	</a></label></li>
-											<li><label><a loc="/design/structural/proxy">	Proxy	</a></label></li>
+											<li><label><a id="/design/structural/decorator"> Decorator </a></label></li>
+											<li><label><a id="/design/structural/facade"> Facade </a></label></li>
+											<li><label><a id="/design/structural/proxy"> Proxy </a></label></li>
 										</ul>
 									</li>
 									<li><input type="checkbox" id="cb10c"/><label for="cb10c">Behavioral</label>
 										<ul>
-											<li><label><a loc="/design/structural/chain">	Chain of responsibility	</a></label></li>
-											<li><label><a loc="/design/structural/command">	Command	</a></label></li>
-											<li><label><a loc="/design/structural/iterator">	Iterator	</a></label></li>
-											<li><label><a loc="/design/structural/mediator">	Mediator	</a></label></li>
-											<li><label><a loc="/design/structural/observer">	Observer	</a></label></li>
-											<li><label><a loc="/design/structural/strategy">	Strategy	</a></label></li>
+											<li><label><a id="/design/structural/chain"> Chain of responsibility </a></label></li>
+											<li><label><a id="/design/structural/command"> Command </a></label></li>
+											<li><label><a id="/design/structural/iterator"> Iterator </a></label></li>
+											<li><label><a id="/design/structural/mediator"> Mediator </a></label></li>
+											<li><label><a id="/design/structural/observer"> Observer </a></label></li>
+											<li><label><a id="/design/structural/strategy"> Strategy </a></label></li>
 
 										</ul>
 									</li>
@@ -315,13 +325,17 @@
 						</ul>
 					</div>
 					<div class="twelve columns"></div>
-					<div class="one-third column"><h3 class="menu-headline">Alphabetical List</h3>
+					<div class="one-third column"><h3 class="menu-headline">Concurrency</h3>
 						<ul>
-							<li><label>Itemized List</label></li>
+							<li><input type="checkbox" id="cb1"/><label for="cb1">Creational</label>
+								<ul>
+									<li><label>etc listing</label></li>
+								</ul>
+							</li>
 						</ul>
 					</div>
 					<div class="one-third column">
-						<h3 class="menu-headline">Blog</h3>
+						<h3 class="menu-headline">Architectural</h3>
 						<ul>
 							<li><label>A</label></li>
 							<li><label>B</label></li>

@@ -1,4 +1,19 @@
 //A series of helper functions
+if ( typeof String.prototype.startsWith != 'function' ) {
+    String.prototype.startsWith = function( str ) {
+        return this.substring( 0, str.length ) === str;
+    }
+};
+if ( typeof String.prototype.endsWith != 'function' ) {
+    String.prototype.endsWith = function( str ) {
+        return this.substring( this.length - str.length, this.length ) === str;
+    }
+};
+//End prototype alterations
+
+//for commenting purposes:
+var comment_click_id = 'empty-0-0';
+//end commenting
 
 //Polyfill fix for the DOMParser
 //without it the DOMParser returned element is null
@@ -9,9 +24,7 @@
  * By Eli Grey, http://eligrey.com
  * Public domain.
  */
-
 /*! @source https://gist.github.com/1129031 */
-var currentState = '';
 var bodyGrp = document.getElementById("bodyGrp");
 getBinary = function (strFrag) {
     var res = [];
@@ -70,7 +83,6 @@ getBinary = function (strFrag) {
  */
 initType = function() {
     if( $('#editMe').length ) {
-        console.log("it exists");
         $('#editMe').editable({
             inlineMode: false,
             //key for 75.70.198.162:3000
@@ -86,6 +98,22 @@ initType = function() {
             background:        ' #cfe7f1',
             trackScroll: true
         });
+        $('#source-code').editable({
+            inlineMode: false,
+            //key for 75.70.198.162:3000
+            key: '1F4A3B3C5B5F3B4A4E4B2B2B4C4==',
+            indentWithTabs: true,
+            maxHeight: 250,
+            lineNumbers: true,
+            lineWrapping: true,
+            mode: 'text/html',
+            tabMode: 'indent',
+            tabSize: 2
+        });
+        //$('#source-code').editable('codeView.toggle');
+        var src = document.getElementById("source-code");
+        console.dir(src);
+
     }else{
         console.log("fix timer @ initType");
     }
@@ -93,6 +121,30 @@ initType = function() {
     var text = document.getElementById('nameTxt');
     text.onkeypress = checkInput;
     text.onpaste = checkInput;
+
+    //comment reply buttons
+    $('#comment-collection').on('click', 'a', function (ev) {
+        $('html, body').animate({
+            scrollTop: $("#comment-box").offset().top
+        }, 500);
+        comment_click_id = ev.target.getAttribute("id");
+    });
+
+    //comment counts
+    //set the count of comments:
+    var count = $("#comment-collection").children().length;
+    $("#comment-total").html(count + " Comments");
+
+
+    //initialize terminal:
+    console.log("doc: " + document.location.pathname);
+    var tmpArray = document.location.pathname.split("/");
+    var sPre = "";
+    for (var i = 0; i < tmpArray.length-2; i++){
+        sPre += ("../");
+    }
+    console.log ("   " + sPre + "terminal");
+    $("#terminal-frame").attr("src", sPre + "terminal");
 
 }
 function checkInput(e) {
@@ -116,8 +168,7 @@ updateContent = function(data) {
     if (data == null)
         return;
     bodyGrp.innerHTML = data.pgHTML;
-    setTimeout(function() { initType(); }, 2000);
-
+    setTimeout(function() { initType(); }, 700);
 };
 window.addEventListener('popstate', function (event) {
     updateContent(event.state);
@@ -128,14 +179,14 @@ window.onload = function () {
     history.replaceState(popObj, document.title, document.location.href);
 }
 $('#responsive-menu').on('click', 'li', function (ev) {
-    var rObj = ev.target.getAttribute("loc");
-    if (rObj) {
-        var url = ev.target.attributes["loc"].value;
-        loadPattern(url);
-        ev.stopPropagation();
-        ev.preventDefault();
+    var rObj = ev.target.getAttribute("id");
+    if (rObj !== null && rObj.startsWith("/")) {
+            loadPattern(rObj);
+            ev.stopPropagation();
+            ev.preventDefault();
     }
 });
+
 loadPattern = function(url){
     var xhttp = new XMLHttpRequest();
     var params = "type=select";
@@ -148,9 +199,6 @@ loadPattern = function(url){
                 console.log("error")
             } else {
                 $('.responsive-menu').toggleClass('expand');
-                var parser = new DOMParser();
-                var el = parser.parseFromString(xhttp.responseText, "text/html");
-                var htmlPage = el.innerHTML;
                 var popObj = {pgHTML: xhttp.responseText, pgTitle: xhttp.targetAddr};
                 updateContent(popObj);
                 window.history.pushState(popObj, xhttp.targetAddr, xhttp.targetAddr);
@@ -183,25 +231,21 @@ submitComment = function(){
 }
 postComment = function(mailTxt, nameTxt, commentTxt){
     var xhttp = new XMLHttpRequest();
-    console.log("document title: " + document.title);
-    console.log(document.location.uri);
-    var params = "type=postComment&mailTxt=" + mailTxt + "&nameTxt=" + nameTxt + "&commentTxt=" + commentTxt;
+    var params = "type=postComment&mailTxt=" + mailTxt + "&nameTxt=" + nameTxt + "&commentTxt=" + commentTxt + "&comment_click_id=" + comment_click_id;
     xhttp.open("POST", document.location.href, true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.onreadystatechange = function () {
         if (xhttp.readyState == 4) {
             if (xhttp.status != 200) {
-                console.log("error")
+                swal({   title: xhttp.status,   text: xhttp.responseText,   imageUrl: "../images/exclaim.jpg" });
             } else {
-                //console.log("wtf");
-                var commentCollection = document.getElementById("commentCollection");
+                var commentCollection = document.getElementById("comment-collection");
                 commentCollection.innerHTML = xhttp.responseText;
-                //console.log("..." + xhttp.responseText);;
-                /*var htmlPage = el.innerHTML;
-                var popObj = {pgHTML: xhttp.responseText, pgTitle: xhttp.targetAddr};
-                updateContent(popObj);
-                window.history.pushState(popObj, xhttp.targetAddr, xhttp.targetAddr);
-                */
+                document.getElementById('mailTxt').value = '';
+                document.getElementById('nameTxt').value = '';
+                document.getElementById('editMe').value = ' ';
+                var myObj = document.getElementsByClassName("froala-view");
+                myObj[0].innerHTML = "";
             }
         }
     };
