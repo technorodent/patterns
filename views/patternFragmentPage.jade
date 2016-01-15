@@ -9,7 +9,6 @@
 |   <div class="container">
 | <div class="eleven columns">
 |   <div class="post">
-|   <h2>#{title}</h2>
 |   <div class="post-meta">
 |       <span class="icon-calendar">
 |       </span>On 10 January 2016<span class="icon-author"></span>By Rob Warren
@@ -20,13 +19,18 @@
 |       <!--div class="overlay zoom">
 |   </div>
 |       <!--/a--></div>
+|       <h3 id="content-header">Discussion</h3>
+|       <hr class="discussion-rule"></hr>
 |       <div id="discussion" class="post-content">
+|       <div>
 |           !{postContent}
+|       </div>
 |       </div>
 |       <!-- End Post-->
 |       <!-- Console -->
 |        <div id="console-test">
 |           <h3>Test in Console</h3>
+|           <hr class="discussion-rule">
 |           <div class="code-window">
 |               <textarea id="source-code" ></textarea>
 |           </div>
@@ -37,7 +41,6 @@
 |       <!-- End Console-->
 |       <!-- Comments -->
 |       <div id="comment-fields" class="comments-sec">
-|           <h3>Comments (Σ<span>x<span><sub>i</sub>)</h3>
 |           <ol class="commentlist">
 |           <li id="comment-collection">
 |               !{commentContent}

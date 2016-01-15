@@ -4,8 +4,8 @@ var mysql = require('mysql');
 var pool = mysql.createPool({
     connectionLimit: 100,
     host: 'localhost',
-    user: 'root',
-    password: '~WESMPC1!a',
+    user: '*****',
+    password: '*****',
     database: 'pattern_library',
     multipleStatements: true,
     debug: false
@@ -138,13 +138,35 @@ router.post('/design/structural/:pattern', function (req, res) {
     };
 });
 router.post('/design/behavioral/:pattern', function (req, res) {
-    getPostPage('/design/behavioral/', req, res, 1);
     if (req.body.type == "select") {
         getPostPage('/design/behavioral/', req, res, 1);
     } else if (req.body.type == 'postComment') {
         postCommentItem('/design/behavioral/', req, res);
     };
 });
+router.post('/creational/:pattern', function (req, res) {
+    if (req.body.type == "select") {
+        getPostPage('/creational/', req, res, 1);
+    } else if (req.body.type == 'postComment') {
+        postCommentItem('/creational/', req, res);
+    };
+});
+router.post('/structural/:pattern', function (req, res) {
+    if (req.body.type == "select") {
+        getPostPage('/structural/', req, res, 1);
+    } else if (req.body.type == 'postComment') {
+        postCommentItem('/structural/', req, res);
+    };
+});
+router.post('/behavioral/:pattern', function (req, res) {
+    if (req.body.type == "select") {
+        getPostPage('/behavioral/', req, res, 1);
+    } else if (req.body.type == 'postComment') {
+        postCommentItem('/behavioral/', req, res);
+    };
+});
+
+//region GETS
 //----------------GETS---------------------
 router.get('/', function (req, res, next) {
     res.render('index', {title: 'Express'});
@@ -223,6 +245,8 @@ router.get('/design/behavioral/:pattern', function (req, res) {
     getPage('/design/behavioral/', req.params.pattern);
     res.send("ok");
 });
+//endregion
+
 var postCommentItem = function (organizer, req, res){
 
     var itemKey;
@@ -310,12 +334,13 @@ var getPostPage = function (organizer, req, res, level) {
             console.log("connection errors");
             console.log(err);
         }
-        console.log("Select pk as keyVal from patterns where route_a like '" + organizer + "' and route_b like'" + req.params.pattern + "'");
+        ///////////get primary key//////////////////////
+        //console.log("Select pk as keyVal from patterns where route_a like '" + organizer + "' and route_b like'" + req.params.pattern + "'");
         var oPromise = new Promise(function (resolve, reject) {
-            connection.query("Select pk as keyVal from patterns where route_a like '" + organizer + "' and route_b like'" + req.params.pattern + "'", function (err, rows, fields) {
+            connection.query("Select pk as keyVal, discussion from patterns where route_a like '" + organizer + "' and route_b like'" + req.params.pattern + "'", function (err, rows, fields) {
                 //if (err) throw err;
                 if (!err) {
-                    resolve(rows[0].keyVal);
+                    resolve([rows[0].keyVal, rows[0].discussion]);
                 }
                 else {
                     connection.release();
@@ -326,9 +351,16 @@ var getPostPage = function (organizer, req, res, level) {
         oPromise.then(function (result) {
             //Select * from patterns where pk=" + result
             console.log("track 1");
-            connection.query('SET @test = ' + result + '; CALL htmlCommentsOnly( @test); Select * from patterns where pk=@test; SELECT @test as inout_i', function (err, rows, fields) {
+            connection.query('SET @test = ' + result[0] + '; CALL htmlCommentsOnly( @test); Select * from patterns where pk=@test; SELECT @test as inout_i', function (err, rows, fields) {
                 if (err) throw err;
-                var paraText = "<p>Recognition hybrid hyperlinked passive specification nominal line scan algorithm development. Protocol multiplexed normalizing backbone or cable serial. Patch ethernet boolean solid prototype bridgeware coordinated array vector gigabyte. interface audio optical video resistor optical nano phase. Femtosecond read-only technician logarithmic disk resistor internet fragmentation analog nano extension. Pulse PC connectivity interval.</p><p>Gigabyte recursive vector equipment. Effect inertia sequential PC proxy limiter modular. Gigabyte in amplified extended digital bridgeware optical nano fiber. Frequency normalizing capacitance hyperlinked analog passive application theory line nominal rate includes.</p><p>For right now, must end with a br break...</p><br>"
+                console.log("typeof..." + (typeof (result[1]) === null));
+                var paraText = ''
+                if (result[1]) {
+                    paraText = result[1];
+                }else{
+                    paraText = "<p>Recognition hybrid hyperlinked passive specification nominal line scan algorithm development. Protocol multiplexed normalizing backbone or cable serial. Patch ethernet boolean solid prototype bridgeware coordinated array vector gigabyte. interface audio optical video resistor optical nano phase. Femtosecond read-only technician logarithmic disk resistor internet fragmentation analog nano extension. Pulse PC connectivity interval.</p><p>Gigabyte recursive vector equipment. Effect inertia sequential PC proxy limiter modular. Gigabyte in amplified extended digital bridgeware optical nano fiber. Frequency normalizing capacitance hyperlinked analog passive application theory line nominal rate includes.</p><p>For right now, must end with a br break...</p><br>"
+                }
+
                 var tmpHtml = '',
                     patternName;
                 //console.log(rows);
